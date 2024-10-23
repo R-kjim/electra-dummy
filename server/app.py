@@ -389,7 +389,7 @@ class Add_Get_Candidate(Resource):
         for candidate in candidates:
             candidate=candidate.to_dict()
         #     print(candidate["image_url"])
-            candidate['image_url']=f"{request.host_url}/static/{candidate["image_url"]}"
+            candidate['image_url']=f"{request.host_url}/static/{candidate['image_url']}"
             all_candidates.append(candidate)
             
         return make_response(all_candidates,200)
