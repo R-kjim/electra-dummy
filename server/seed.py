@@ -155,8 +155,8 @@ def seed_candidates(num):
 
 if __name__ == '__main__':
     with app.app_context():
-        db.drop_all()
-        db.create_all()  # Create tables if they don't exist
+        # db.drop_all()
+        # db.create_all()  # Create tables if they don't exist
         seed_users(35)
         seed_counties(1)
         seed_constituencies(1)

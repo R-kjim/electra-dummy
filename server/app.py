@@ -21,7 +21,7 @@ def allowed_file(filename):
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://electravote_db_data_user:1ImBtTCbYFMbEB3K4luj6bLcBjbHDlVi@dpg-csckbl56l47c739bvpk0-a.oregon-postgres.render.com/electravote_db_data"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] =secrets.token_hex(32)
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(minutes=30)  
