@@ -15,7 +15,7 @@ const Dashboard = () => {
   params=params.id
   useEffect(()=>{
        value.setParam(params)
-       if(value.userData.voter){
+       if(value.userData.voter.length>0){
         if(value.userData.voter[0].vote)
        { let votes=value.userData.voter[0].vote
        const election_count=votes.reduce((acc,current)=>{
