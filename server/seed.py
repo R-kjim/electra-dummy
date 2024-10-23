@@ -4,21 +4,20 @@ from faker import Faker
 import random
 from datetime import datetime, timedelta
 from flask_bcrypt import Bcrypt
-
+from werkzeug.security import generate_password_hash
 
 fake = Faker()
-bcrypt=Bcrypt()
 
 def seed_users(num):
     for _ in range(num):
         user = User(
             name=fake.name(),
             email=fake.email(),
-            password=bcrypt.generate_password_hash("a123"),
+            password=generate_password_hash("a123"),
             role="Voter"
         )
         db.session.add(user)
-    user1=User(name="Admin Mpoa",email="admin@gmail.com", password=bcrypt.generate_password_hash("a123"),role="Admin")
+    user1=User(name="Admin Mpoa",email="admin@gmail.com", password=generate_password_hash("a123"),role="Admin")
     db.session.add(user1)
     db.session.commit()
     print(f'Inserted {num} fake users into the database!')
