@@ -8,6 +8,7 @@ import secrets,datetime,os
 from datetime import timedelta
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
+from werkzeug.security import check_password_hash
 
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -258,7 +259,7 @@ class Login(Resource):
         password=data["password"]
         user=User.query.filter_by(email=email).first()
         if user:
-            if bcrypt.check_password_hash(user.password, password):
+            if check_password_hash(user.password, password):
                 access_token=create_access_token(identity=user.id)
                 refresh_token=create_refresh_token(identity=user.id)
 
