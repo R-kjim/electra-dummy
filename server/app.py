@@ -69,7 +69,7 @@ class Signup(Resource):
         password=data['password']
         name=data['name']
         role='Voter'
-        hashed_password = generate_password_hash(password).decode('utf-8')
+        hashed_password = generate_password_hash(password)
         if '@' in email and name!='' and name!=' ':
             user=User.query.filter_by(email=email).first()
             if user:
