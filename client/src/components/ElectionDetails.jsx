@@ -16,7 +16,7 @@ const ElectionDetails = () => {
     const navigate=useNavigate()
     //fetch the specific elections data
     useEffect(()=>{
-        fetch(`http://127.0.0.1:5555/election/${params1}`)
+        fetch(`https://electra-dummy.onrender.com/election/${params1}`)
         .then(res=>res.json())
         .then(data=>{setElection(data)
         })
@@ -73,7 +73,7 @@ const ElectionDetails = () => {
                 for (let item of votesArray) {
                     // Push the fetch promise to the array
                     fetchPromises.push(
-                        fetch("http://127.0.0.1:5555/vote", {
+                        fetch("https://electra-dummy.onrender.com/vote", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"

@@ -30,7 +30,7 @@ const AppContextProvider = (props) => {
         const fetchUserData = async () => {
           const refreshToken=localStorage.getItem("refreshToken")
           try {
-            let response = await fetch("http://127.0.0.1:5555/user", {
+            let response = await fetch("https://electra-dummy.onrender.com/user", {
               method: "GET",
               headers: {
                 "Authorization": `Bearer ${accessToken}`,
@@ -64,7 +64,7 @@ const AppContextProvider = (props) => {
           }
       
           try {
-              let response = await fetch("http://127.0.0.1:5555/refresh", {
+              let response = await fetch("https://electra-dummy.onrender.com/refresh", {
                   method: "POST",
                   headers: {
                       "Content-Type": "application/json",
@@ -90,17 +90,17 @@ const AppContextProvider = (props) => {
 
       
         //fetch regions data
-        fetch("http://127.0.0.1:5555/get-boundaries")
+        fetch("https://electra-dummy.onrender.com/get-boundaries")
         .then(res=>res.json())
         .then(data=>setRegions(data))
 
         //fetch elections
-        fetch("http://127.0.0.1:5555/elections")
+        fetch("https://electra-dummy.onrender.com/elections")
         .then(res=>res.json())
         .then(data=>setElections(data))
 
         //fetch voters data
-        fetch("http://127.0.0.1:5555/voters",{
+        fetch("https://electra-dummy.onrender.com/voters",{
           method:"GET",
           headers:{
             "Authorization":`Bearer ${localStorage.getItem("accessToken")}`
@@ -110,7 +110,7 @@ const AppContextProvider = (props) => {
         .then(data=>setVoters(data))
 
         //fetch  candidates data
-        fetch("http://127.0.0.1:5555/candidates")
+        fetch("https://electra-dummy.onrender.com/candidates")
         .then(res=>res.json())
         .then(data=>setCandidates(data))
         fetchUserData()

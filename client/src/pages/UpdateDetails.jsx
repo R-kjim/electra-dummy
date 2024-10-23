@@ -44,7 +44,7 @@ const UpdateDetails = () => {
       if(isUpdate){
         let national_id=value.userData.voter[0].national_id
       formData.nationalId=national_id
-        fetch(`http://127.0.0.1:5555/add-voter-details/${value.userId}`,{
+        fetch(`https://electra-dummy.onrender.com/add-voter-details/${value.userId}`,{
             method:"PATCH",
             headers:{
                 "Content-Type":"application/json"
@@ -65,7 +65,7 @@ const UpdateDetails = () => {
               }
         })}else{
         formData.nationalId=parseInt(formData.nationalId)
-        fetch(`http://127.0.0.1:5555/add-voter-details/${value.userId}`,{
+        fetch(`https://electra-dummy.onrender.com/add-voter-details/${value.userId}`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

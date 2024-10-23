@@ -37,7 +37,7 @@ const ResetPassword = () => {
       toast.error('Passwords do not match');
       return;
     }
-    fetch(`http://127.0.0.1:5555/user/${formData.email}`,{
+    fetch(`https://electra-dummy.onrender.com/user/${formData.email}`,{
         method:"PATCH",
         headers:{
             "Content-Type":"application/json"

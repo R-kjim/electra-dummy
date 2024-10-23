@@ -51,7 +51,7 @@ const LoginSignup = () => {
         toast.error("Passwords do not match")
       }
       else{
-        fetch("http://127.0.0.1:5555/signup",{
+        fetch("https://electra-dummy.onrender.com/signup",{
           method:"POST",
           headers:{
             "Content-Type":"application/json"
@@ -72,7 +72,7 @@ const LoginSignup = () => {
       }
     } else {
       const loginData={"email":formData.email,"password":formData.password}
-      fetch("http://127.0.0.1:5555/login",{
+      fetch("https://electra-dummy.onrender.com/login",{
         method:"POST",
         headers:{
           "Content-Type":"application/json"
