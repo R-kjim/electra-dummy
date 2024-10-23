@@ -8,7 +8,7 @@ import secrets,datetime,os
 from datetime import timedelta
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-from werkzeug.security import check_password_hash
+from werkzeug.security import check_password_hash,generate_password_hash
 
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -69,7 +69,7 @@ class Signup(Resource):
         password=data['password']
         name=data['name']
         role='Voter'
-        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        hashed_password = generate_password_hash(password).decode('utf-8')
         if '@' in email and name!='' and name!=' ':
             user=User.query.filter_by(email=email).first()
             if user:
