@@ -15,7 +15,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 DATABASE = os.environ.get(
     "DB_URI", f"sqlite:///{os.path.join(BASE_DIR, 'app.db')}")
 #upload images assist
-UPLOAD_FOLDER="/home/robert/Documents/projects/electro-vote-phase4-project/server/static"
+UPLOAD_FOLDER = os.path.join(os.getcwd(), 'static')
 ALLOWED_EXTENSIONS=set(['png','jpeg','jpg'])
 def allowed_file(filename):
     return '.' in filename and filename.rsplit(".",1)[1].lower() in ALLOWED_EXTENSIONS
@@ -198,7 +198,7 @@ class Constituency_By_Id(Resource):
         if constituency:
             db.session.delete(constituency)
             db.session.commit()
-            return make_response({"messsage":["Delete successful"]},204)
+            return make_response({"messsage":["Delete successful"]},201)
         return make_response({"error":f"Constituency {id} does not exist"},404)
 api.add_resource(Constituency_By_Id,'/constituency/<int:id>')
 

@@ -53,7 +53,7 @@ const RegisterCandidate = () => {
     formData.append("file",myFile)
   }
  
-  fetch("http://127.0.0.1:5555/uploads",{
+  fetch("https://electra-dummy.onrender.com/uploads",{
     method:"POST",
     body:formData
   })
@@ -64,7 +64,7 @@ const RegisterCandidate = () => {
       return res.json()
     }
   })
-    fetch("http://127.0.0.1:5555/candidates", {
+    fetch("https://electra-dummy.onrender.com/candidates", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

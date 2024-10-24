@@ -92,7 +92,7 @@ const LoginSignup = () => {
             }
               else if(data.role==="Admin"){
                 navigate(`/admin/dashboard/${localStorage.getItem("userId")}`)
-                window.location.reload()
+                // window.location.reload()
               }
           })
         }else{

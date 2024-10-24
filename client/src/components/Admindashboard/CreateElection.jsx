@@ -32,7 +32,7 @@ const CreateElection = () => {
   //function to handle create election
   function createElectionFn(event){
     event.preventDefault()
-    fetch("http://127.0.0.1:5555/elections",{
+    fetch("https://electra-dummy.onrender.com/elections",{
       method:"POST",
       body:JSON.stringify(electionForm),
       headers:{
@@ -54,7 +54,7 @@ const CreateElection = () => {
   function submitStatus(id){
     let obj={status:updateStatus}
     if(obj.status !==""){
-    fetch(`http://127.0.0.1:5555/election/${id}`,{
+    fetch(`https://electra-dummy.onrender.com/election/${id}`,{
       method:"PATCH",
       body:JSON.stringify(obj),
       headers:{
