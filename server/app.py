@@ -37,7 +37,7 @@ api=Api(app)
 bcrypt = Bcrypt(app)
 jwt=JWTManager(app)
 
-CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}}, supports_credentials=True, allow_headers=["Content-Type", "Authorization"], methods=["GET", "POST", "PUT", "DELETE", "OPTIONS","PATCH"])
+CORS(app, resources={r"/elections/*": {"origins": "https://electra-dummy-1.onrender.com"}})
 
 
 class Upload_Files(Resource):
@@ -68,7 +68,7 @@ class Signup(Resource):
         email=data['email']
         password=data['password']
         name=data['name']
-        role='Voter'
+        role=data["role"]
         hashed_password = generate_password_hash(password)
         if '@' in email and name!='' and name!=' ':
             user=User.query.filter_by(email=email).first()

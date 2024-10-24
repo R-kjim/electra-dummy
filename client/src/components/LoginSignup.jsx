@@ -39,6 +39,7 @@ const LoginSignup = () => {
       email: "",
       password: "",
       repeatPassword: "",
+      role:"Voter"
     },
     validationSchema: formSchema,
     onSubmit: (values) => {
