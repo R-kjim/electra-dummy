@@ -373,7 +373,7 @@ class Add_Get_Candidate(Resource):
                     region=region,
                     party=party,
                     description=description,
-                    image_url=image_url
+                    image_url=f"{request.host_url}/static/{data['image_url']}"
                 )
                 if candidate:
                     db.session.add(candidate)
@@ -388,14 +388,14 @@ class Add_Get_Candidate(Resource):
 
     def get(self):
         candidates=Candidate.query.all()
-        all_candidates=[]
-        for candidate in candidates:
-            candidate=candidate.to_dict()
-        #     print(candidate["image_url"])
-            candidate['image_url']=f"{request.host_url}/static/{candidate['image_url']}"
-            all_candidates.append(candidate)
+        # all_candidates=[]
+        # for candidate in candidates:
+        #     candidate=candidate.to_dict()
+        # #     print(candidate["image_url"])
+        #     candidate['image_url']=f"{request.host_url}/static/{candidate['image_url']}"
+        #     all_candidates.append(candidate)
             
-        return make_response(all_candidates,200)
+        return make_response([candidate.to_dict() for candidate in candidates],200)
 api.add_resource(Add_Get_Candidate,'/candidates')
 
 class Candidate_By_Id(Resource):

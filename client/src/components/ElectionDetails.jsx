@@ -217,7 +217,7 @@ const ElectionDetails = () => {
                                 <section key={index} className={`mb-4  ${position.id===myVotes[position.position]? 'border border-green-500':"transition-shadow duration-200 ease-in-out transform hover:scale-105"}`}> 
                                     <div className={`bg-white p-4 rounded-lg shadow-md ${position.id === myVotes[selectedPosition] ?"hover:shadow-lg":null}  flex flex-col items-center`}>
                                         <img
-                                            src={politician}
+                                            src={position.image_url}
                                             alt={position.voter.user.name}
                                             className="h-40 w-40 rounded-full mx-auto mb-2 border-4 border-gray-300 shadow-lg"
                                         />
