@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react'
 import { AppContext } from '../../../AppContext'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import DisplayRegions from './DisplayRegions'
 
 const ManageRegions = () => {
   const value=useContext(AppContext)
@@ -16,7 +15,7 @@ const ManageRegions = () => {
   //function to handle add county
   function addCountyFn(event){
     event.preventDefault()
-    fetch("http://127.0.0.1:5555/county",{
+    fetch("https://electra-dummy.onrender.com/county",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -45,7 +44,7 @@ const ManageRegions = () => {
   };
   function addConstituencyFn(event){
     event.preventDefault()
-    fetch("http://127.0.0.1:5555/constituency",{
+    fetch("https://electra-dummy.onrender.com/constituency",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -75,7 +74,7 @@ const ManageRegions = () => {
   }
   function addWardFn(event){
     event.preventDefault()
-    fetch("http://127.0.0.1:5555/ward",{
+    fetch("https://electra-dummy.onrender.com/ward",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

@@ -17,6 +17,7 @@ const RegisterCandidate = () => {
     position:"",
     name:"",
     region:region,
+    image_url:""
   })
   const allCandidateNames = value.voters
   const [candidate,setCandidate]=useState({})
@@ -64,29 +65,30 @@ const RegisterCandidate = () => {
       return res.json()
     }
   })
-    fetch("https://electra-dummy.onrender.com/candidates", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(candidateData)
-    })
-    .then(res => {
-      if (res.ok) {
-        toast.success("Candidate added successfully");
-        navigate(`/admin/dashboard/${value.userId}`)
-        return res.json();
-      } else {
-        return res.json().then(errorData => {
-          toast.error(errorData.error[0]);
-        });
-      }
-    })
-    .catch(err => {
-      toast.error("An error occurred. Please try again.");
-    });
+  console.log(candidateData)
+    // fetch("https://electra-dummy.onrender.com/candidates", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(candidateData)
+    // })
+    // .then(res => {
+    //   if (res.ok) {
+    //     toast.success("Candidate added successfully");
+    //     navigate(`/admin/dashboard/${value.userId}`)
+    //     return res.json();
+    //   } else {
+    //     return res.json().then(errorData => {
+    //       toast.error(errorData.error[0]);
+    //     });
+    //   }
+    // })
+    // .catch(err => {
+    //   toast.error("An error occurred. Please try again.");
+    // });
   
-    event.target.reset();
+    // event.target.reset();
   }
   const handleNameInputChange = (e) => {
     const value = e.target.value;

@@ -46,13 +46,14 @@ class Upload_Files(Resource):
         if 'file' not in request.files:
             return make_response({"error":["media file not found"]},400)
         file=request.files['file']
-        if file.name=='':
+        if file.filename=='':
             return make_response({"error":["No file selected"]},400)
         if file and allowed_file(file.filename):
             filename=secure_filename(file.filename)
             file_path=os.path.join(app.config["UPLOAD_FOLDER"],filename)
             file.save(file_path)
             return make_response({"file_path":filename},200)
+        return make_response({"error": ["File type not allowed"]}, 400)
 api.add_resource(Upload_Files, '/uploads')
 class Refresh(Resource):
     @jwt_required(refresh=True)
